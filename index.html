@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FestiVent</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+    <body>
+        <header class="header">
+            <nav class="header__nav">
+                <ul class="header__list header__list--left">
+                    <li class="header__item">
+                        <a href="index.html" class="header__link header__link--active">Inicio</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#" class="header__link">Info Festivales</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="./html/registro.html" class="header__link">Registro</a>
+                    </li>
+                </ul>
+
+                <div class="header__logo">
+                    <a href="index.html" class="header__logo-link">
+                        <img src="img/logo.png" alt="Logo Festival de Música" class="header__logo-img">
+                    </a>
+                </div>
+
+                <ul class="header__list header__list--right">
+                    <li class="header__item">
+                        <a href="#" class="header__link header__link--cta">Compra Entradas</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="./html/nosotros.html" class="header__link">Nosotros</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <section class="carousel" aria-label="Festival Destacados">
+                <div class="carousel__container">
+                    <button class="carousel__button carousel__button--prev" aria-label="Anterior">
+                        &#10094;
+                    </button>
+
+                    <div class="carousel__track-container">
+                        <ul class="carousel__track">
+                            <li class="carousel__slide">
+                                <img src="img/bw.jpg" alt="BlackWorks" class="carousel__img">
+                            </li>
+                            <li class="carousel__slide">
+                                <img src="img/aquasella.jpg" alt="Aquasella" class="carousel__img">
+                            </li>
+                            <li class="carousel__slide">
+                                <img src="img/medusa.jpg" alt="Medusa" class="carousel__img">
+                            </li>
+                            <li class="carousel__slide">
+                                <img src="img/vinarock.jpg" alt="VinaRock" class="carousel__img">
+                            </li>
+                            <li class="carousel__slide">
+                                <img src="img/pop.jpg" alt="Pop" class="carousel__img">
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button class="carousel__button carousel__button--next" aria-label="Siguiente">
+                        &#10095;
+                    </button>
+                </div>
+            </section>
+
+            <section class="filters">
+                <div class="filters__container">
+                    <input type="text" class="filters__input" placeholder="Busca tu festival favorito...">
+
+                    <select class="filters__select">
+                        <option value="">--Género Musical--</option>
+                        <option value="Reaggeton">Reaggeton</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Urbano">Urbano</option>
+                        <option value="Rap">Rap</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="upcoming">
+                <h2 class="upcoming__title">Próximas Citas</h2>
+
+                <div class="upcoming__grid">
+                    <article class="festival-card">
+                        <div class="festival-card__image-container">
+                            <img src="img/rock.jpg" alt="Rock Mountain Festival" class="festival-card__img">
+                        </div>
+
+                        <div class="festival-card__content">
+                            <div class="festival-card__countdown">
+                                <span class="festival-card__time">05d : 12h : 45m</span>
+                            </div>
+                        </div>
+
+                        <div class="festival-card__info-wrapper">
+                            <div class="festival-card__text-group">
+                                <h3 class="festival-card__name">Rock Mountain 2026</h3>
+
+                                <p class="festival-card__description">El festival de Rock más grande del norte, con más de 20 bandas en vivo.</p>
+                            </div>
+
+                            <a href="#" class="festival-card__button festival-card__button--buy">Comprar Entradas</a>
+                        </div>
+                    </article>
+
+                    <article class="festival-card">
+                        <div class="festival-card__image-container">
+                            <img src="img/bw.jpg" alt="Black Works Festival" class="festival-card__img">
+                        </div>
+
+                        <div class="festival-card__content">
+                            <div class="festival-card__countdown">
+                                <span class="festival-card__time">15d : 08h : 10m</span>
+                            </div>
+                        </div>
+
+                        <div class="festival-card__info-wrapper">
+                            <div class="festival-card__text-group">
+                                <h3 class="festival-card__name">Black Works 2026</h3>
+
+                                <p class="festival-card__description">Hard techno industrial en una atmósfera única. Line-up internacional.</p>
+                            </div>
+
+                            <a href="#" class="festival-card__button festival-card__button--buy">Comprar Entradas</a>
+                        </div>
+                    </article>
+
+                    <article class="festival-card">
+                        <div class="festival-card__image-container">
+                            <img src="img/medusa.jpg" alt="Rock Festival" class="festival-card__img">
+                        </div>
+
+                        <div class="festival-card__content">
+                            <div class="festival-card__countdown">
+                                <span class="festival-card__time">25d : 15h : 30m</span>
+                            </div>
+                        </div>
+
+                        <div class="festival-card__info-wrapper">
+                            <div class="festival-card__text-group">
+                                <h3 class="festival-card__name">Medusa Sunbeach 2026</h3>
+
+                                <p class="festival-card__description">La mejor combinación de música electrónica y playa en Cullera.</p>
+                            </div>
+
+                            <a href="#" class="festival-card__button festival-card__button--buy">Comprar Entradas</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="newsletter">
+                <div class="newsletter__container">
+                    <h2 class="newsletter__title">!No te pierdas nada¡</h2>
+
+                    <p class="newsletter__text">Suscríbete para recibir alertas de carteles y preventas exclusivas.</p>
+
+                    <form class="newsletter__form" id="newsletterForm">
+                        <div class="newsletter__input-wrapper">
+                            <input type="email" class="newsletter__input" id="emailInput" placeholder="TU@EMAIL.COM" required>
+
+                            <span id="validationIcon" class="newsletter__icon"></span>
+                        </div>
+
+                        <button type="submit" class="newsletter__button">Unirse</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__container">
+                <ul class="footer__social">
+                    <li class="footer__social-item">
+                        <a href="https://instagram.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="img/instagram.png" alt="Instagram" class="footer__social-icon">
+                        </a>
+                    </li>
+                    <li class="footer__social-item">
+                        <a href="https://x.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="img/gorjeo.png" alt="X (Twitter)" class="footer__social-icon">
+                        </a>
+                    </li>
+                    <li class="footer__social-item">
+                        <a href="https://facebook.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="img/facebook.png" alt="Facebook" class="footer__social-icon">
+                        </a>
+                    </li>
+                    <li class="footer__social-item">
+                        <a href="https://tiktok.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="img/tik-tok.png" alt="Tiktok" class="footer__social-icon">
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="footer__copyright">
+                    <p class="footer__copy-text">
+                        &copy; 2026 FestiVent Inc. Todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <div id="toast" class="toast">
+            <span class="toast__message">!ENVIADO¡ PRONTO TENDRÁS NOTICIAS.</span>
+
+            <button id="closeToast" class="toast__close">&times;</button>
+        </div>
+
+        <script src="js/index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sobre Nosotros</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/nosotros.css">
+    </head>
+    <body>
+        <header class="header">
+            <nav class="header__nav">
+                <ul class="header__list header__list--left">
+                    <li class="header__item">
+                        <a href="../index.html" class="header__link">Inicio</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#" class="header__link">Info Festivales</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="registro.html" class="header__link">Registro</a>
+                    </li>
+                </ul>
+
+                <div class="header__logo">
+                    <a href="../index.html" class="header__logo-link">
+                        <img src="../img/logo.png" alt="Logo Festival de Música" class="header__logo-img">
+                    </a>
+                </div>
+
+                <ul class="header__list header__list--right">
+                    <li class="header__item">
+                        <a href="#" class="header__link header__link--cta">Compra Entradas</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="nosotros.html" class="header__link header__link--active">Nosotros</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="about">
+            <section class="about__hero">
+                <div class="about_manifesto">
+                    <h1 class="about__title">FestiVent<br><span>Keep It Real</span></h1>
+                
+                    <p class="about__text">
+                        Nacimos bajo el ruido de los altavoces y el asfalto caliente el 17 de Marzo de 2025. FestiVent no es una ticketera, es el altavoz de una generación que no pide permiso para bailar. Nos cansamos de las webs grises y los procesos infinitos; por eso creamos un ecosistema donde el rap, la electrónica y la cultura urbana tienen su sede oficial. 
+                        <br><br>
+                        Nuestra misión es conectar el underground con el escenario principal, eliminando las barreras entre el artista y su crew. En FestiVent, cada entrada es un pase a una experiencia diseñada por y para los que viven la noche. No solo vendemos tickets, gestionamos el hype.
+                    </p>
+
+                    <a href="../pdf/Infografia.pdf" download class="about__download-btn">Infografía FestiVent</a>
+                </div>
+            </section>
+
+            <section class="about__details">
+                <div class="details__grid">
+                    <div class="details__card details__card--ceo">
+                        <h2 class="details__label">CEO & Founder</h2>
+
+                        <p class="details__value">Álvaro Rueda Nieves</p>
+
+                        <div class="details__tag">
+                            "Liderando el movimiento desde 2025"
+                        </div>
+                    </div>
+
+                    <div class="details__card">
+                        <h2 class="details__label">HQ / Sede Central</h2>
+
+                        <p class="details__value">Calle del Ritmo 90, <br> Oficinas "The Lab" <br> 28004 Madrid, España.</p>
+                    </div>
+
+                    <div class="details__card">
+                        <h2 class="details__label">Drop us a line</h2>
+
+                        <p class="details__ value">info@festivent.com</p>
+
+                        <a href="../index.html" class="details__web">www.festivent.com</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about__social">
+                <h2 class="social__title">Únete a la Crew</h2>
+
+                <div class="about__video--container">
+                    <video class="about__video" playsinline controls id="festivideo">
+                        <source src="../video/video.mp4" type="video/mp4">
+
+                        <track label="Español" kind="subtitles" srclang="es" src="../video/subtitulosEspañol.vtt" default></track>
+                        <track label="English" kind="subtitles" srclang="en" src="../video/subtitulosIngles.vtt"></track>
+                        <track label="Português" kind="subtitles" srclang="pt" src="../video/subtitulosPortugues.vtt"></track>
+
+                        Tu navegador no soporta vídeos.
+                    </video>
+                </div>
+
+                <div class="about__video-controls">
+                        <p class="controls__label">Selecciona Idioma Subtítulos</p>
+
+                        <div class="controls__buttons">
+                            <button class="control-btn control-btn--active" data-lang="es">ESPAÑOL</button>
+                            <button class="control-btn" data-lang="en">ENGLISH</button>
+                            <button class="control-btn" data-lang="pt">PORTUGUÊS</button>
+                        </div>
+                    </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__container">
+                <ul class="footer__social">
+                    <li class="footer__social-item">
+                        <a href="https://instagram.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="../img/instagram.png" alt="Instagram" class="footer__social-icon">
+                        </a>
+                    </li>
+                    <li class="footer__social-item">
+                        <a href="https://x.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="../img/gorjeo.png" alt="X (Twitter)" class="footer__social-icon">
+                        </a>
+                    </li>
+                    <li class="footer__social-item">
+                        <a href="https://facebook.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="../img/facebook.png" alt="Facebook" class="footer__social-icon">
+                        </a>
+                    </li>
+                    <li class="footer__social-item">
+                        <a href="https://tiktok.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="../img/tik-tok.png" alt="Tiktok" class="footer__social-icon">
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="footer__copyright">
+                    <p class="footer__copy-text">
+                        &copy; 2026 FestiVent Inc. Todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
+        </footer>
+        
+        <script src="../js/nosotros.js"></script>
+    </body>
+</html>

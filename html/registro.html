@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registro</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/registro.css">
+    </head>
+    <body>
+        <header class="header">
+            <nav class="header__nav">
+                <ul class="header__list header__list--left">
+                    <li class="header__item">
+                        <a href="../index.html" class="header__link">Inicio</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#" class="header__link">Info Festivales</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="registro.html" class="header__link header__link--active">Registro</a>
+                    </li>
+                </ul>
+
+                <div class="header__logo">
+                    <a href="../index.html" class="header__logo-link">
+                        <img src="../img/logo.png" alt="Logo Festival de Música" class="header__logo-img">
+                    </a>
+                </div>
+
+                <ul class="header__list header__list--right">
+                    <li class="header__item">
+                        <a href="#" class="header__link header__link--cta">Compra Entradas</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="nosotros.html" class="header__link">Nosotros</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="auth">
+            <div class="auth-card">
+                <div class="auth-card__header">
+                    <h1 class="auth-card__title">NEW CREW MEMBER</h1>
+
+                    <p class="auth-card__subtitle">Completa tu acreditación oficial</p>
+                </div>
+
+                <form class="auth-form" id="registerForm">
+                    <div class="auth-form__grid">
+                        <div class="auth-form__group">
+                            <label class="auth-form__label">Nombre</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="regNombre" class="auth-form__input" placeholder="Tu nombre" required>
+                                <span class="val-icon"></span>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__group">
+                            <label class="auth-form__label">Apellidos</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="regApellido" class="auth-form__input" placeholder="Tu apellido" required>
+                                <span class="val-icon"></span>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__group">
+                            <label class="auth-form__label">Username</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="regUser" class="auth-form__input" placeholder="@usuario" required>
+                                <span class="val-icon"></span>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__group">
+                            <label class="auth-form__label">Teléfono</label>
+                            <div class="input-wrapper">
+                                <input type="tel" id="regTel" class="auth-form__input" placeholder="600 000 000" required>
+                                <span class="val-icon"></span>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__group auth-form__group--full">
+                            <label class="auth-form__label">Email</label>
+                            <div class="input-wrapper">
+                                <input type="email" id="regEmail" class="auth-form__input" placeholder="tu@email.com" required>
+                                <span class="val-icon"></span>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__group">
+                            <label class="auth-form__label">Contraseña</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="regPass" class="auth-form__input" required>
+                                <span class="val-icon"></span>
+                            </div>
+                            <div class="pass-strength">
+                                <div id="strengthBar" class="pass-strength__bar"></div>
+                                <span id="strengthText" class="pass-strength__text">Seguridad: Esperando...</span>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__group">
+                            <label class="auth-form__label">Repite Contraseña</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="regPassConfirm" class="auth-form__input" required>
+                                <span class="val-icon"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="auth-form__submit">CREAR CUENTA</button>
+                </form>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__container">
+                <ul class="footer__social">
+                    <li class="footer__social-item">
+                        <a href="https://instagram.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="../img/instagram.png" alt="Instagram" class="footer__social-icon">
+                        </a>
+                    </li>
+                    <li class="footer__social-item">
+                        <a href="https://x.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="../img/gorjeo.png" alt="X (Twitter)" class="footer__social-icon">
+                        </a>
+                    </li>
+                    <li class="footer__social-item">
+                        <a href="https://facebook.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="../img/facebook.png" alt="Facebook" class="footer__social-icon">
+                        </a>
+                    </li>
+                    <li class="footer__social-item">
+                        <a href="https://tiktok.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="../img/tik-tok.png" alt="Tiktok" class="footer__social-icon">
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="footer__copyright">
+                    <p class="footer__copy-text">
+                        &copy; 2026 FestiVent Inc. Todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../js/registro.js"></script>
+    </body>
+</html>
