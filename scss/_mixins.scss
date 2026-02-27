@@ -1,0 +1,46 @@
+@use 'variables' as v;
+@use "sass:map";
+
+// 1. Centrado flexible (Tu original)
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// 2. Sombra retro (Tu original, mejorada con dos ejes para control total)
+@mixin retro-shadow($color, $x: 4px, $y: 4px) {
+    box-shadow: $x $y 0px $color;
+}
+
+// 3. Estilo de botones (Tu original)
+@mixin button-style($bg, $shadow) {
+    background-color: $bg;
+    border: 3px solid map.get(v.$colors, 'black');
+    @include retro-shadow($shadow);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 0px 0px 0px $shadow;
+    }
+}
+
+// 4. Fuente "Gochi Hand" (Nuevo - Necesario para index.scss)
+@mixin hand-font($size: 1.5rem) {
+    font-family: 'Gochi Hand', cursive;
+    font-size: $size;
+}
+
+// 5. Transiciones suaves (Nuevo - Necesario para index.scss)
+@mixin transition($time: 0.3s) {
+    transition: all $time ease;
+}
+
+// 6. Flex center simplificado para el Carousel (Nuevo)
+@mixin flex-center-alt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

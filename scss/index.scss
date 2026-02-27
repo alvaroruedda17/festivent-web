@@ -1,0 +1,544 @@
+@use "sass:map";
+@use 'variables' as v;
+@use 'mixins' as m;
+
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Inter:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: v.$black;
+    color: v.$white;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+
+    &::-webkit-scrollbar {
+        width: 12px;
+        &-track { background: v.$black; }
+        &-thumb {
+            background-color: v.$pink;
+            border-radius: 0px;
+            border: 3px solid v.$black;
+            &:hover { background-color: v.$cyan; }
+        }
+    }
+}
+
+.header {
+    width: 100%;
+    background-color: transparent;
+    padding: 1rem 0;
+
+    &__nav {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    &__list {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        &--left { justify-content: flex-start; }
+        &--right { justify-content: flex-end; }
+    }
+
+    &__logo {
+        position: relative;
+        z-index: 10;
+
+        &-link {
+            display: block;
+            transform: rotate(-3deg);
+            @include m.transition;
+            &:hover { transform: rotate(0deg) scale(1.1); }
+        }
+
+        &-img {
+            height: 120px;
+            filter: drop-shadow(0 0 1px v.$pink);
+            margin-bottom: -40px;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: v.$white;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        @include m.transition;
+
+        &:hover {
+            color: v.$yellow;
+            text-shadow: 2px 2px v.$pink;
+        }
+
+        &--active { border-bottom: 3px solid v.$purple; }
+
+        &--cta {
+            @include m.hand-font(1.4rem);
+            background-color: v.$pink;
+            color: v.$black;
+            padding: 0.5rem 1.2rem;
+            border-radius: 5px;
+            @include m.retro-shadow(v.$yellow);
+            @include m.transition(0.2s);
+
+            &:hover {
+                box-shadow: 0px 0px 0px v.$yellow;
+                transform: translate(2px, 2px);
+                background-color: v.$cyan;
+            }
+        }
+    }
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 4rem 0;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    &__track-container {
+        width: 400px;
+        height: 600px;
+        overflow: hidden;
+        border: 5px solid v.$white;
+        @include m.retro-shadow(v.$purple, 10px, 10px);
+        transform: rotate(1deg);
+        margin: 0 auto;
+        position: relative;
+    }
+
+    &__track {
+        display: flex;
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    &__slide {
+        min-width: 400px;
+        height: 600px;
+        @include m.flex-center;
+    }
+
+    &__img {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+        display: block;
+    }
+
+    &__button {
+        background: v.$yellow;
+        border: 3px solid v.$black;
+        @include m.hand-font(2rem);
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        position: absolute;
+        z-index: 10;
+        @include m.retro-shadow(v.$black);
+        @include m.transition(0.2s);
+
+        &:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px v.$pink;
+        }
+
+        &--prev { left: calc(50% - 280px); }
+        &--next { right: calc(50% - 280px); }
+    }
+}
+
+.filters {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    &__container {
+        display: flex;
+        gap: 1.5rem;
+        background: v.$purple;
+        padding: 1.5rem;
+        border: 4px solid v.$white;
+        @include m.retro-shadow(v.$cyan, 8px, 8px);
+    }
+
+    &__input, &__select {
+        background: v.$black;
+        border: 2px solid v.$white;
+        color: v.$white;
+        padding: 0.8rem 1rem;
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        flex: 1;
+        @include m.transition;
+
+        &:focus {
+            outline: none;
+            border-color: v.$yellow;
+            box-shadow: 0 0 10px v.$yellow;
+        }
+    }
+
+    &__input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        @include m.hand-font(1.2rem);
+    }
+
+    &__select {
+        cursor: pointer;
+        flex: 0 1 250px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        appearance: none;
+    }
+}
+
+.upcoming {
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    &__title {
+        @include m.hand-font(3.5rem);
+        color: v.$cyan;
+        text-shadow: 4px 4px v.$pink;
+        text-transform: uppercase;
+        margin-bottom: 3rem;
+        transform: skew(-1deg);
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+        align-items: start;
+    }
+}
+
+.festival-card {
+    background: #16161a;
+    border: 4px solid v.$white;
+    padding: 1rem;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+
+    $card-shadow-colors: v.$purple, v.$pink, v.$yellow;
+    @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+            transform: rotate(-1deg);
+            @include m.retro-shadow(nth($card-shadow-colors, $i), 10px, 10px);
+        }
+    }
+
+    &:hover {
+        transform: scale(1.05) rotate(0deg);
+        @include m.retro-shadow(v.$cyan, 15px, 15px);
+        z-index: 5;
+    }
+
+    &__img--container {
+        width: 100%;
+        overflow: hidden;
+        border: 2px solid v.$white;
+    }
+
+    &__img {
+        width: 100%;
+        aspect-ratio: 2 / 3;
+        object-fit: cover;
+        display: block;
+        filter: grayscale(0.5) contrast(110%);
+        @include m.transition;
+    }
+
+    &:hover &__img { filter: grayscale(0%) contrast(100%); }
+
+    &__countdown {
+        background: v.$black;
+        color: v.$cyan;
+        @include m.hand-font(1.2rem);
+        padding: 0.4rem 1rem;
+        border: 2px solid v.$white;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-5deg);
+        white-space: nowrap;
+        @include m.retro-shadow(v.$pink);
+    }
+
+    &__info-wrapper {
+        padding-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    &__name {
+        font-size: 1.8rem;
+        color: v.$white;
+        margin-bottom: 0.5rem;
+        line-height: 1;
+    }
+
+    &__description {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        color: #a0a0a0;
+        min-height: 3rem;
+    }
+
+    &__button--buy {
+        background: v.$yellow;
+        color: v.$black;
+        @include m.hand-font(1.5rem);
+        text-align: center;
+        padding: 0.8rem;
+        @include m.retro-shadow(v.$white);
+        text-decoration: none;
+        @include m.transition(0.2s);
+        border: 3px solid v.$black;
+
+        &:hover {
+            background: v.$pink;
+            color: v.$white;
+            box-shadow: 2px 2px 0px v.$cyan;
+            transform: translate(2px, 2px);
+        }
+    }
+}
+
+.newsletter {
+    padding: 6rem 2rem;
+    background-color: v.$black;
+    @include m.flex-center;
+
+    &__container {
+        background: v.$pink;
+        border: 6px solid v.$black;
+        padding: 3rem;
+        text-align: center;
+        max-width: 800px;
+        @include m.retro-shadow(v.$yellow, 15px, 15px);
+        transform: rotate(1deg);
+        position: relative;
+
+        &::before {
+            content: "!OJO¡";
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            background: v.$cyan;
+            color: v.$black;
+            padding: 0.5rem 1rem;
+            @include m.hand-font(1.5rem);
+            border: 3px solid v.$black;
+            transform: rotate(-15deg);
+        }
+    }
+
+    &__title {
+        @include m.hand-font(3.5rem);
+        color: v.$black;
+        margin-bottom: 1rem;
+        line-height: 1;
+    }
+
+    &__text {
+        font-weight: 700;
+        color: v.$black;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+    }
+
+    &__form {
+        display: flex;
+        gap: 0;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    &__input-wrapper {
+        position: relative;
+        flex: 1;
+        display: flex;
+    }
+
+    &__input {
+        width: 100%;
+        padding-right: 40px !important;
+        border: 3px solid v.$black;
+        
+        &--error {
+            border: 3px solid v.$yellow !important;
+            background-color: #fff0f0;
+        }
+        &--success {
+            border: 3px solid v.$cyan !important;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: 900;
+        pointer-events: none;
+
+        &--error::before {
+            content: "X";
+            color: #ff0000;
+            text-shadow: 0 0 5px v.$yellow;
+        }
+        &--success::before {
+            content: "✓";
+            color: v.$cyan;
+            text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+        }
+    }
+
+    &__button {
+        background: v.$yellow;
+        color: v.$black;
+        border: 3px solid v.$black;
+        padding: 0 2rem;
+        @include m.hand-font(1.8rem);
+        cursor: pointer;
+        @include m.transition(0.2s);
+
+        &:hover { background-color: v.$cyan; }
+    }
+}
+
+.footer {
+    background-color: v.$black;
+    padding: 4rem 2rem 2rem;
+    border-top: 4px solid v.$purple;
+    position: relative;
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    &__social {
+        display: flex;
+        gap: 3rem;
+        list-style: none;
+
+        &-item {
+            @include m.transition(0.3s);
+            &:hover { transform: scale(1.3) rotate(10deg); }
+        }
+
+        &-icon {
+            width: 45px;
+            height: 45px;
+            filter: drop-shadow(0 0 5px v.$cyan);
+            @include m.transition;
+        }
+
+        &-link:hover &-icon {
+            filter: drop-shadow(0 0 15px v.$pink) invert(1);
+        }
+    }
+
+    &__copyright {
+        text-align: center;
+        border-top: 2px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        padding-top: 2rem;
+    }
+
+    &__copy-text {
+        font-weight: 700;
+        font-size: 0.8rem;
+        color: v.$white;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        opacity: 0.7;
+    }
+
+    &::after {
+        content: "KEEP IT REAL";
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        @include m.hand-font(1.5rem);
+        color: v.$yellow;
+        opacity: 0.3;
+        transform: rotate(-5deg);
+    }
+}
+
+.toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background: v.$cyan;
+    color: v.$black;
+    padding: 1rem 1.5rem;
+    border: 3px solid v.$black;
+    @include m.retro-shadow(v.$pink, 6px, 6px);
+    @include m.hand-font(1.2rem);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &--show {
+        visibility: visible;
+        opacity: 1;
+        transform: translate(-50%, -50%) rotate(-1deg) scale(1);
+    }
+
+    &__close {
+        background: v.$yellow;
+        border: 2px solid v.$black;
+        font-size: 1rem;
+        cursor: pointer;
+        line-height: 1;
+        padding: 2px 6px;
+        font-family: 'Inter', sans-serif;
+        font-weight: bold;
+        &:hover { background: v.$white; }
+    }
+}

@@ -1,0 +1,22 @@
+@use "sass:map";
+
+$colors: (
+    'purple': #6C63FF,
+    'pink': #FF3CAC,
+    'yellow': #FFD600,
+    'cyan': #00E5FF,
+    'black': #0F0E17,
+    'white': #FFFFFF
+);
+
+$fonts: (
+    'hand': ('Gochi Hand', cursive),
+    'main': ('Inter', sans-serif)
+);
+
+$black: map.get($colors, 'black');
+$pink: map.get($colors, 'pink');
+$cyan: map.get($colors, 'cyan');
+$yellow: map.get($colors, 'yellow');
+$purple: map.get($colors, 'purple');
+$white: map.get($colors, 'white');

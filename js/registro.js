@@ -5,6 +5,11 @@ const passConfirm = document.getElementById('regPassConfirm');
 const strengthBar = document.getElementById('strengthBar');
 const strengthText = document.getElementById('strengthText');
 
+// Elementos del Modal
+const modal = document.getElementById('confirmModal');
+const cancelBtn = document.getElementById('cancelBtn');
+const confirmBtn = document.getElementById('confirmBtn');
+
 const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail|hotmail|outlook|live|icloud|yahoo)\.(com|es)$/i;
 
 // ---Validación de Fuerza de Contraseña---
@@ -63,7 +68,39 @@ emailInput.addEventListener('input', () => {
     }
 });
 
-// ---EVENTO DE ENVÍO ÚNICO---
+// --- Validación de campos tarjeta de crédito ---
+const cardInput = document.getElementById('regCardNumber');
+cardInput.addEventListener('input', (e) => {
+    let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+    let formattedValue = "";
+    for (let i = 0; i < value.length; i++) {
+        if (i > 0 && i % 4 === 0) formattedValue += " ";
+        formattedValue += value[i];
+    }
+    e.target.value = formattedValue;
+});
+
+const holderInput = document.getElementById('regCardHolder');
+holderInput.addEventListener('input', (e) => {
+    e.target.value = e.target.value.toUpperCase();
+});
+
+const expiryInput = document.getElementById('regCardExpiry');
+expiryInput.addEventListener('input', (e) => {
+    let value = e.target.value.replace(/[^0-9]/g, '');
+    if (value.length > 2) {
+        e.target.value = value.substring(0, 2) + '/' + value.substring(2, 4);
+    } else {
+        e.target.value = value;
+    }
+});
+
+const cvvInput = document.getElementById('regCardCVV');
+cvvInput.addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace(/[^0-9]/g, '');
+});
+
+// --- LÓGICA DEL MODAL Y ENVÍO ---
 registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -71,10 +108,28 @@ registerForm.addEventListener('submit', (e) => {
     const doPassWordsMatch = passInput.value === passConfirm.value && passInput.value !== "";
 
     if (isEmailValid && doPassWordsMatch) {
-        localStorage.setItem('showWelcome', 'true');
-        
-        window.location.href = '../index.html';
+        // Si todo es válido, mostramos el modal en lugar de redirigir directamente
+        modal.classList.add('modal--show');
     } else {
         alert('¡Oye! Revisa bien los campos, algo no encaja en tu acreditación.');
+    }
+});
+
+// Botón "VOLVER" del modal
+cancelBtn.addEventListener('click', () => {
+    modal.classList.remove('modal--show');
+});
+
+// Botón "CONFIRMAR" del modal
+confirmBtn.addEventListener('click', () => {
+    modal.classList.remove('modal--show');
+    localStorage.setItem('showWelcome', 'true');
+    window.location.href = '../index.html';
+});
+
+// Cerrar modal si se hace clic fuera del contenido
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.classList.remove('modal--show');
     }
 });

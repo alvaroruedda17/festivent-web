@@ -82,6 +82,38 @@
                         </div>
 
                         <div class="auth-form__group auth-form__group--full">
+                            <label class="auth-form__label">Número de Tarjeta</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="regCardNumber" class="auth-form__input" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                                <span class="val-icon"></span>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__group auth-form__group--full">
+                            <label class="auth-form__label">Titular de la Tarjeta</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="regCardHolder" class="auth-form__input" placeholder="NOMBRE DEL TITULAR" required>
+                                <span class="val-icon"></span>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__group">
+                            <label class="auth-form__label">Expiración (MM/AA)</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="regCardExpiry" class="auth-form__input" placeholder="MM/AA" maxlength="5" required>
+                                <span class="val-icon"></span>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__group">
+                            <label class="auth-form__label">CVV</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="regCardCVV" class="auth-form__input" placeholder="123" maxlength="3" required>
+                                <span class="val-icon"></span>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__group auth-form__group--full">
                             <label class="auth-form__label">Email</label>
                             <div class="input-wrapper">
                                 <input type="email" id="regEmail" class="auth-form__input" placeholder="tu@email.com" required>
@@ -147,6 +179,17 @@
                 </div>
             </div>
         </footer>
+
+        <div id="confirmModal" class="modal">
+            <div class="modal__content">
+                <h2 class="modal__title">¿ESTÁS LISTO?</h2>
+                <p class="modal__text">Vas a registrar tu acreditación oficial y vincular tu tarjeta. Esta acción no se puede deshacer.</p>
+                <div class="modal__actions">
+                    <button id="cancelBtn" class="modal__btn modal__btn--cancel">VOLVER</button>
+                    <button id="confirmBtn" class="modal__btn modal__btn--confirm">CONFIRMAR</button>
+                </div>
+            </div>
+        </div>
 
         <script src="../js/registro.js"></script>
     </body>
