@@ -11,42 +11,31 @@
         <header class="header">
             <nav class="header__nav">
                 <ul class="header__list header__list--left">
-                    <li class="header__item">
-                        <a href="../index.html" class="header__link">Inicio</a>
-                    </li>
-                    <li class="header__item">
-                        <a href="#" class="header__link">Info Festivales</a>
-                    </li>
-                    <li class="header__item">
-                        <a href="registro.html" class="header__link">Registro</a>
-                    </li>
+                    <li class="header__item"><a href="../index.html" class="header__link">Inicio</a></li>
+                    <li class="header__item"><a href="#" class="header__link">Info Festivales</a></li>
+                    <li class="header__item"><a href="registro.html" class="header__link">Registro</a></li>
                 </ul>
 
                 <div class="header__logo">
                     <a href="../index.html" class="header__logo-link">
-                        <img src="../img/logo.png" alt="Logo Festival de Música" class="header__logo-img">
+                        <img src="../img/logo.png" alt="Logo FestiVent" class="header__logo-img">
                     </a>
                 </div>
 
                 <ul class="header__list header__list--right">
-                    <li class="header__item">
-                        <a href="entradas.html" class="header__link header__link--cta">Compra Entradas</a>
-                    </li>
-                    <li class="header__item">
-                        <a href="nosotros.html" class="header__link">Nosotros</a>
-                    </li>
+                    <li class="header__item"><a href="entradas.html" class="header__link header__link--cta">Compra Entradas</a></li>
+                    <li class="header__item"><a href="nosotros.html" class="header__link">Nosotros</a></li>
                 </ul>
             </nav>
         </header>
 
         <main class="tickets">
-            <section class="tickets__hero animate-on-load delay-1">
+            <section class="tickets__hero animate-on-load">
                 <h1 class="tickets__title">RESERVA TU ENTRADA</h1>
             </section>
 
             <div class="tickets__grid">
-                <form class="tickets__form animate-on-load delay-2" id="ticket-form">
-                    
+                <form class="tickets__form animate-on-load" id="ticket-form">
                     <div class="tickets__group">
                         <label class="tickets__label" for="genre">¿Qué estilo prefieres?</label>
                         <select class="tickets__select" id="genre" required>
@@ -100,17 +89,13 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="tickets__submit" id="btn-deploy">
-                        Confirmar y Pagar
-                    </button>
+                    <button type="submit" class="tickets__submit">Confirmar y Pagar</button>
                 </form>
 
-                <aside class="tickets__console animate-on-load delay-3">
+                <aside class="tickets__console animate-on-load">
                     <div class="console__header">
-                        <span class="console__dot"></span>
-                        <span class="console__dot"></span>
-                        <span class="console__dot"></span>
-                        <span class="console__title">Resumen_de_compra</span>
+                        <span class="console__dot"></span><span class="console__dot"></span><span class="console__dot"></span>
+                        <span class="console__title">Resumen de tu compra</span>
                     </div>
                     <div class="console__body" id="console-output">
                         <p class="console__line">> Esperando selección...</p>
@@ -125,8 +110,8 @@
             <div class="success-msg" id="success-msg">
                 <div class="success-msg__content">
                     <h2 class="success-msg__title">¡Compra Completada!</h2>
-                    <p class="success-msg__text">Hemos procesado tu pedido con éxito. <br> Recibirás tus entradas QR por correo electrónico en unos minutos.</p>
-                    <button class="success-msg__btn" onclick="location.reload()">Volver al inicio</button>
+                    <p class="success-msg__text">Tu transacción ha sido procesada. <br> Revisa tu email para descargar tus pases QR.</p>
+                    <button class="success-msg__btn" onclick="resetForm()">Nueva Compra</button>
                 </div>
             </div>
         </main>
@@ -134,41 +119,22 @@
         <footer class="footer">
             <div class="footer__container">
                 <ul class="footer__social">
-                    <li class="footer__social-item">
-                        <a href="https://instagram.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
-                            <img src="../img/instagram.png" alt="Instagram" class="footer__social-icon">
-                        </a>
-                    </li>
-                    <li class="footer__social-item">
-                        <a href="https://x.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
-                            <img src="../img/gorjeo.png" alt="X (Twitter)" class="footer__social-icon">
-                        </a>
-                    </li>
-                    <li class="footer__social-item">
-                        <a href="https://facebook.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
-                            <img src="../img/facebook.png" alt="Facebook" class="footer__social-icon">
-                        </a>
-                    </li>
-                    <li class="footer__social-item">
-                        <a href="https://tiktok.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
-                            <img src="../img/tik-tok.png" alt="Tiktok" class="footer__social-icon">
-                        </a>
-                    </li>
+                    <li class="footer__social-item"><a href="#"><img src="../img/instagram.png" alt="Instagram" class="footer__social-icon"></a></li>
+                    <li class="footer__social-item"><a href="#"><img src="../img/gorjeo.png" alt="X" class="footer__social-icon"></a></li>
+                    <li class="footer__social-item"><a href="#"><img src="../img/facebook.png" alt="Facebook" class="footer__social-icon"></a></li>
+                    <li class="footer__social-item"><a href="#"><img src="../img/tik-tok.png" alt="Tiktok" class="footer__social-icon"></a></li>
                 </ul>
-
                 <div class="footer__copyright">
-                    <p class="footer__copy-text">
-                        &copy; 2026 FestiVent Inc. Todos los derechos reservados.
-                    </p>
+                    <p class="footer__copy-text">&copy; 2026 FestiVent Inc. Todos los derechos reservados.</p>
                 </div>
             </div>
         </footer>
-        
-        <script src="../js/entradas.js"></script>
 
-        <div id="loader-wrapper" class="contenedor">
+        <div id="loader-wrapper">
             <canvas id="canvas"></canvas>
             <div class="spiner"></div>
         </div>
+
+        <script src="../js/entradas.js"></script>
     </body>
 </html>

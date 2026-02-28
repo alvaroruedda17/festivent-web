@@ -217,11 +217,11 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: 0.9rem;
 }
 .tickets__label::before {
-  content: "const ";
+  content: "";
   color: #FF3CAC;
 }
 .tickets__label::after {
-  content: " =";
+  content: "";
   color: #FFFFFF;
 }
 
@@ -482,6 +482,16 @@ body::-webkit-scrollbar-thumb:hover {
   border-right: 8px solid #FF3CAC;
   border-bottom: 8px solid #FFD600;
   animation: spin 1.2s linear infinite, glow 1.5s ease-in-out infinite alternate;
+}
+
+#loader-wrapper {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+#loader-wrapper.is-active {
+  opacity: 1;
+  visibility: visible;
 }
 
 @keyframes spin {
