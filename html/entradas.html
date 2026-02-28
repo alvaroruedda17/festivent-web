@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FestiVent | Compra de Entradas</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/entradas.css">
+    </head>
+    <body>
+        <header class="header">
+            <nav class="header__nav">
+                <ul class="header__list header__list--left">
+                    <li class="header__item">
+                        <a href="../index.html" class="header__link">Inicio</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#" class="header__link">Info Festivales</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="registro.html" class="header__link">Registro</a>
+                    </li>
+                </ul>
+
+                <div class="header__logo">
+                    <a href="../index.html" class="header__logo-link">
+                        <img src="../img/logo.png" alt="Logo Festival de Música" class="header__logo-img">
+                    </a>
+                </div>
+
+                <ul class="header__list header__list--right">
+                    <li class="header__item">
+                        <a href="entradas.html" class="header__link header__link--cta">Compra Entradas</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="nosotros.html" class="header__link">Nosotros</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="tickets">
+            <section class="tickets__hero animate-on-load delay-1">
+                <h1 class="tickets__title">RESERVA TU ENTRADA</h1>
+            </section>
+
+            <div class="tickets__grid">
+                <form class="tickets__form animate-on-load delay-2" id="ticket-form">
+                    
+                    <div class="tickets__group">
+                        <label class="tickets__label" for="genre">¿Qué estilo prefieres?</label>
+                        <select class="tickets__select" id="genre" required>
+                            <option value="" disabled selected>-- Elige un género musical --</option>
+                            <option value="techno">Techno / Electrónica</option>
+                            <option value="rap">Rap / Hip-Hop</option>
+                            <option value="trap">Trap / Urbano</option>
+                        </select>
+                    </div>
+
+                    <div class="tickets__group">
+                        <label class="tickets__label" for="festival">Selecciona el festival</label>
+                        <select class="tickets__select" id="festival" disabled required>
+                            <option value="" disabled selected>-- Primero elige un estilo --</option>
+                        </select>
+                    </div>
+
+                    <div class="tickets__group">
+                        <label class="tickets__label">Tipo de acceso</label>
+                        <div class="tickets__options">
+                            <label class="tickets__option">
+                                <input type="radio" name="ticket-type" value="general" data-price="50" checked>
+                                <span class="tickets__custom-radio">Entrada General (50€)</span>
+                            </label>
+                            <label class="tickets__option">
+                                <input type="radio" name="ticket-type" value="vip" data-price="95">
+                                <span class="tickets__custom-radio">Pase VIP (95€)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="tickets__group">
+                        <label class="tickets__label" for="quantity">¿Cuántas entradas necesitas?</label>
+                        <div class="tickets__quantity-wrapper">
+                            <input type="number" class="tickets__input" id="quantity" value="1" min="1" max="10">
+                            <span class="tickets__unit">Entrada(s)</span>
+                        </div>
+                    </div>
+
+                    <div class="tickets__group">
+                        <label class="tickets__label">Servicios adicionales</label>
+                        <div class="tickets__addons">
+                            <label class="tickets__checkbox">
+                                <input type="checkbox" name="addon" value="camping" data-price="20">
+                                <span class="tickets__custom-check">Zona de Acampada (+20€)</span>
+                            </label>
+                            <label class="tickets__checkbox">
+                                <input type="checkbox" name="addon" value="bus" data-price="15">
+                                <span class="tickets__custom-check">Bus Ida/Vuelta (+15€)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="tickets__submit" id="btn-deploy">
+                        Confirmar y Pagar
+                    </button>
+                </form>
+
+                <aside class="tickets__console animate-on-load delay-3">
+                    <div class="console__header">
+                        <span class="console__dot"></span>
+                        <span class="console__dot"></span>
+                        <span class="console__dot"></span>
+                        <span class="console__title">Resumen_de_compra</span>
+                    </div>
+                    <div class="console__body" id="console-output">
+                        <p class="console__line">> Esperando selección...</p>
+                    </div>
+                    <div class="console__total">
+                        <span class="total__label">PRECIO FINAL:</span>
+                        <span class="total__value" id="final-price">0.00€</span>
+                    </div>
+                </aside>
+            </div>
+
+            <div class="success-msg" id="success-msg">
+                <div class="success-msg__content">
+                    <h2 class="success-msg__title">¡Compra Completada!</h2>
+                    <p class="success-msg__text">Hemos procesado tu pedido con éxito. <br> Recibirás tus entradas QR por correo electrónico en unos minutos.</p>
+                    <button class="success-msg__btn" onclick="location.reload()">Volver al inicio</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__container">
+                <ul class="footer__social">
+                    <li class="footer__social-item">
+                        <a href="https://instagram.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="../img/instagram.png" alt="Instagram" class="footer__social-icon">
+                        </a>
+                    </li>
+                    <li class="footer__social-item">
+                        <a href="https://x.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="../img/gorjeo.png" alt="X (Twitter)" class="footer__social-icon">
+                        </a>
+                    </li>
+                    <li class="footer__social-item">
+                        <a href="https://facebook.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="../img/facebook.png" alt="Facebook" class="footer__social-icon">
+                        </a>
+                    </li>
+                    <li class="footer__social-item">
+                        <a href="https://tiktok.com" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="../img/tik-tok.png" alt="Tiktok" class="footer__social-icon">
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="footer__copyright">
+                    <p class="footer__copy-text">
+                        &copy; 2026 FestiVent Inc. Todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
+        </footer>
+        
+        <script src="../js/entradas.js"></script>
+
+        <div id="loader-wrapper" class="contenedor">
+            <canvas id="canvas"></canvas>
+            <div class="spiner"></div>
+        </div>
+    </body>
+</html>
