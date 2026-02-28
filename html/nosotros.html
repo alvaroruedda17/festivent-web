@@ -41,7 +41,7 @@
 
         <main class="about">
             <section class="about__hero">
-                <div class="about_manifesto">
+                <div class="about_manifesto animate-on-load delay-1">
                     <h1 class="about__title">FestiVent<br><span>Keep It Real</span></h1>
                 
                     <p class="about__text">
@@ -56,56 +56,53 @@
 
             <section class="about__details">
                 <div class="details__grid">
-                    <div class="details__card details__card--ceo">
+                    <div class="details__card details__card--ceo animate-on-load delay-2">
                         <h2 class="details__label">CEO & Founder</h2>
-
                         <p class="details__value">Álvaro Rueda Nieves</p>
-
                         <div class="details__tag">
                             "Liderando el movimiento desde 2025"
                         </div>
                     </div>
 
-                    <div class="details__card">
+                    <div class="details__card animate-on-load delay-3">
                         <h2 class="details__label">HQ / Sede Central</h2>
-
                         <p class="details__value">Calle del Ritmo 90, <br> Oficinas "The Lab" <br> 28004 Madrid, España.</p>
                     </div>
 
-                    <div class="details__card">
+                    <div class="details__card animate-on-load delay-4">
                         <h2 class="details__label">Drop us a line</h2>
-
-                        <p class="details__ value">info@festivent.com</p>
-
+                        <p class="details__value">info@festivent.com</p>
                         <a href="../index.html" class="details__web">www.festivent.com</a>
                     </div>
                 </div>
             </section>
 
             <section class="about__social">
-                <h2 class="social__title">Únete a la Crew</h2>
+                <div class="animate-on-load delay-5">
+                    <h2 class="social__title">Únete a la Crew</h2>
 
-                <div class="about__video--container">
-                    <video class="about__video" playsinline controls id="festivideo">
-                        <source src="../video/video.mp4" type="video/mp4">
+                    <div class="about__video--container">
+                        <video class="about__video" playsinline controls id="festivideo">
+                            <source src="../video/video.mp4" type="video/mp4">
 
-                        <track label="Español" kind="subtitles" srclang="es" src="../video/subtitulosEspañol.vtt" default></track>
-                        <track label="English" kind="subtitles" srclang="en" src="../video/subtitulosIngles.vtt"></track>
-                        <track label="Português" kind="subtitles" srclang="pt" src="../video/subtitulosPortugues.vtt"></track>
+                            <track label="Español" kind="subtitles" srclang="es" src="../video/subtitulosEspañol.vtt" default></track>
+                            <track label="English" kind="subtitles" srclang="en" src="../video/subtitulosIngles.vtt"></track>
+                            <track label="Português" kind="subtitles" srclang="pt" src="../video/subtitulosPortugues.vtt"></track>
 
-                        Tu navegador no soporta vídeos.
-                    </video>
-                </div>
-
-                <div class="about__video-controls">
-                        <p class="controls__label">Selecciona Idioma Subtítulos</p>
-
-                        <div class="controls__buttons">
-                            <button class="control-btn control-btn--active" data-lang="es">ESPAÑOL</button>
-                            <button class="control-btn" data-lang="en">ENGLISH</button>
-                            <button class="control-btn" data-lang="pt">PORTUGUÊS</button>
-                        </div>
+                            Tu navegador no soporta vídeos.
+                        </video>
                     </div>
+
+                    <div class="about__video-controls">
+                            <p class="controls__label">Selecciona Idioma Subtítulos</p>
+
+                            <div class="controls__buttons">
+                                <button class="control-btn control-btn--active" data-lang="es">ESPAÑOL</button>
+                                <button class="control-btn" data-lang="en">ENGLISH</button>
+                                <button class="control-btn" data-lang="pt">PORTUGUÊS</button>
+                            </div>
+                        </div>
+                </div>
             </section>
         </main>
 
@@ -144,4 +141,9 @@
         
         <script src="../js/nosotros.js"></script>
     </body>
+
+    <div id="loader-wrapper" class="contenedor">
+        <canvas id="canvas"></canvas>
+        <div class="spiner"></div>
+    </div>
 </html>

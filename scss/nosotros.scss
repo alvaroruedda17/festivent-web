@@ -377,3 +377,95 @@ body {
         transform: rotate(-5deg);
     }
 }
+
+// 8. ANIMACIONES DE ENTRADA (NUEVO)
+.animate-on-load {
+    opacity: 0;
+    transform: translateY(30px) rotate(-1deg);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+        
+        // Restaurar rotaciones originales de las cards tras la animación
+        &.details__card--ceo { transform: rotate(1deg); }
+        &.details__card:nth-child(2), 
+        &.details__card:nth-child(3),
+        &.about__video--container { transform: rotate(-1deg); }
+        &.about_manifesto { transform: rotate(0deg); }
+    }
+}
+
+// Delays usando un mapa de Sass para elegancia y orden
+$delays: (
+    "1": 0.1s,
+    "2": 0.3s,
+    "3": 0.5s,
+    "4": 0.7s,
+    "5": 0.9s
+);
+
+@each $key, $value in $delays {
+    .delay-#{$key} {
+        transition-delay: $value;
+    }
+}
+
+// --- 9. LOADER / SPINNER ---
+#loader-wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: 9999; // Por encima de todo
+    background-color: v.$black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease, visibility 0.8s;
+
+    &.fade-out {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+#canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.spiner {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 8px solid v.$cyan;
+    border-top: 8px solid v.$purple;
+    border-right: 8px solid v.$pink;
+    border-bottom: 8px solid v.$yellow;
+    animation: spin 1.2s linear infinite, glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 15px v.$purple; }
+    50% { box-shadow: 0 0 15px v.$pink; }
+    100% { box-shadow: 0 0 40px v.$yellow; }
+}
+
+// Keyframes adicionales de tu código (por si los usas luego)
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+}
