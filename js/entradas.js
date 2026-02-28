@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const successModal = document.getElementById('success-msg');
     const animatedElements = document.querySelectorAll('.animate-on-load');
 
-    // --- ENTRADA LIMPIA (Sin spinner inicial) ---
+    // --- ANIMACIÓN DE ENTRADA ---
     setTimeout(() => {
         animatedElements.forEach((el, index) => {
             setTimeout(() => el.classList.add('is-visible'), index * 200);
@@ -61,18 +61,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     animate();
 
-    // --- LÓGICA DE FORMULARIO ---
+    // --- LÓGICA DE FORMULARIO (Único Listener) ---
     genreSelect.addEventListener('change', () => {
-        const festivals = festivalData[genreSelect.value];
-        festSelect.innerHTML = '<option value="" disabled selected>-- Selecciona el evento --</option>';
-        festivals.forEach(f => {
-            const opt = document.createElement('option');
-            opt.value = f.toLowerCase().replace(/\s/g, '_');
-            opt.textContent = f;
-            festSelect.appendChild(opt);
-        });
-        festSelect.disabled = false;
-        updateSummary();
+        const selectedGenre = genreSelect.value;
+        const festivals = festivalData[selectedGenre];
+
+        if (festivals) {
+            festSelect.innerHTML = '<option value="" disabled selected>-- Elige tu festival --</option>';
+            festivals.forEach(fest => {
+                const option = document.createElement('option');
+                option.value = fest.toLowerCase().replace(/\s/g, '_'); 
+                option.textContent = fest;
+                festSelect.appendChild(option);
+            });
+            festSelect.disabled = false;
+            updateSummary();
+        }
     });
 
     function updateSummary() {
@@ -104,18 +108,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('input', updateSummary);
 
-    // --- PROCESO DE COMPRA (Aquí sí usamos el Spinner) ---
+    // --- PROCESO DE COMPRA ---
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        loader.classList.add('is-active'); // Mostramos spinner
+        loader.classList.add('is-active'); 
 
         setTimeout(() => {
-            loader.classList.remove('is-active'); // Ocultamos spinner
+            loader.classList.remove('is-active'); 
             successModal.classList.add('success-msg--active');
         }, 1500);
     });
 
-    // --- RESET HUMANO (Sin recarga de página) ---
+    // --- RESET FORMULARIO ---
     window.resetForm = () => {
         successModal.classList.remove('success-msg--active');
         form.reset();
@@ -124,4 +128,22 @@ document.addEventListener('DOMContentLoaded', () => {
         finalPriceDisplay.textContent = "0.00€";
         consoleOutput.innerHTML = '<p class="console__line">> Esperando selección...</p>';
     };
+
+    // --- LÓGICA DE AUTO-RELLENADO DESDE URL (Al final) ---
+    const urlParams = new URLSearchParams(window.location.search);
+    const genreParam = urlParams.get('genre');
+    const festParam = urlParams.get('festival');
+
+    if (genreParam) {
+        genreSelect.value = genreParam;
+        genreSelect.dispatchEvent(new Event('change'));
+
+        if (festParam) {
+            // Un pequeño delay asegura que las opciones se hayan renderizado
+            setTimeout(() => {
+                festSelect.value = festParam;
+                updateSummary();
+            }, 100);
+        }
+    }
 });
