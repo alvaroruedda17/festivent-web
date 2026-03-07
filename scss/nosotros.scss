@@ -416,7 +416,7 @@ $delays: (
 #loader-wrapper {
     position: fixed;
     inset: 0;
-    z-index: 9999; // Por encima de todo
+    z-index: 9999;
     background-color: v.$black;
     display: flex;
     flex-direction: column;

@@ -324,7 +324,7 @@ body {
   transform: rotate(-5deg);
 }
 
-/* --- ESTILOS DEL MODAL (NUEVO) --- */
+/* --- ESTILOS DEL MODAL --- */
 .modal {
   display: none;
   position: fixed;

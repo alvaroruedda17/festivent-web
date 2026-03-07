@@ -448,7 +448,7 @@ $delays: (
 #loader-wrapper {
     position: fixed;
     inset: 0;
-    z-index: 9999; // Por encima de todo
+    z-index: 9999;
     background-color: v.$black;
     display: flex;
     flex-direction: column;
@@ -481,12 +481,10 @@ $delays: (
 }
 
 #loader-wrapper {
-    // ... tus otros estilos ...
     opacity: 0; 
     visibility: hidden;
     transition: opacity 0.5s ease;
 
-    // Esta clase es la que usaremos para MOSTRARLO
     &.is-active {
         opacity: 1;
         visibility: visible;
