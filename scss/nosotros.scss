@@ -30,7 +30,7 @@ body {
     }
 }
 
-// 3. HEADER (Mismo bloque que index para mantener coherencia)
+// 3. HEADER
 .header {
     width: 100%;
     background-color: transparent;
@@ -44,6 +44,12 @@ body {
         max-width: 1400px;
         margin: 0 auto;
         padding: 0 2rem;
+
+        @include m.tablet {
+            grid-template-columns: 1fr;
+            justify-items: center;
+            gap: 1.5rem;
+        }
     }
 
     &__list {
@@ -52,11 +58,24 @@ body {
         gap: 2rem;
         &--left { justify-content: flex-start; }
         &--right { justify-content: flex-end; }
+
+        @include m.tablet {
+            &--left, &--right { justify-content: center; }
+        }
+
+        @include m.mobile {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
     }
 
     &__logo {
         position: relative;
         z-index: 10;
+
+        @include m.tablet { order: -1; }
+
         &-link {
             display: block;
             transform: rotate(-3deg);
@@ -67,6 +86,8 @@ body {
             height: 120px;
             filter: drop-shadow(0 0 1px v.$pink);
             margin-bottom: -40px;
+
+            @include m.mobile { height: 90px; }
         }
     }
 
@@ -108,6 +129,8 @@ body {
     padding: 2rem 2rem 6rem 2rem;
     overflow: hidden;
 
+    @include m.mobile { padding: 1rem 1rem 4rem 1rem; }
+
     &__hero {
         max-width: 900px;
         margin: 0 auto 6rem;
@@ -121,6 +144,8 @@ body {
         color: v.$cyan;
         text-shadow: 5px 5px 0px v.$pink;
         transform: rotate(-2deg);
+
+        @include m.mobile { text-shadow: 3px 3px 0px v.$pink; }
 
         span {
             font-family: 'Inter', sans-serif;
@@ -140,6 +165,12 @@ body {
         border-left: 4px solid v.$yellow;
         padding-left: 2rem;
         margin-bottom: 3rem;
+
+        @include m.mobile { 
+            font-size: 1rem; 
+            padding-left: 1rem; 
+            text-align: left;
+        }
     }
 
     &__download-btn {
@@ -152,6 +183,12 @@ body {
         border: 3px solid v.$white;
         @include m.retro-shadow(v.$cyan, 8px, 8px);
         @include m.transition;
+
+        @include m.mobile { 
+            padding: 1rem 2rem; 
+            font-size: 1.4rem;
+            width: 100%;
+        }
 
         &:hover {
             transform: translate(-4px, -4px);
@@ -169,6 +206,8 @@ body {
         gap: 3rem;
         max-width: 1200px;
         margin: 0 auto;
+
+        @include m.mobile { gap: 2rem; }
     }
 
     &__card {
@@ -177,6 +216,8 @@ body {
         padding: 2.5rem;
         position: relative;
         @include m.transition;
+
+        @include m.mobile { padding: 1.5rem; }
 
         &--ceo {
             background: v.$yellow;
@@ -234,6 +275,8 @@ body {
     margin-top: 8rem;
     text-align: center;
     width: 100%;
+
+    @include m.mobile { margin-top: 4rem; }
 }
 
 .social__title {
@@ -243,6 +286,8 @@ body {
     margin-bottom: 3rem;
     display: block;
     text-align: center;
+
+    @include m.mobile { font-size: 2.5rem; }
 }
 
 .about__video {
@@ -253,6 +298,8 @@ body {
         @include m.retro-shadow(v.$purple, 15px, 15px);
         position: relative;
         transform: rotate(-1deg);
+
+        @include m.mobile { border-width: 3px; transform: rotate(0); }
     }
 
     width: 100%;
@@ -285,6 +332,8 @@ body {
     &__buttons {
         display: flex;
         gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
 
@@ -333,6 +382,8 @@ body {
         gap: 3rem;
         list-style: none;
 
+        @include m.mobile { gap: 1.5rem; }
+
         &-item {
             @include m.transition(0.3s);
             &:hover { transform: scale(1.3) rotate(10deg); }
@@ -375,10 +426,12 @@ body {
         color: v.$yellow;
         opacity: 0.3;
         transform: rotate(-5deg);
+
+        @include m.mobile { display: none; }
     }
 }
 
-// 8. ANIMACIONES DE ENTRADA (NUEVO)
+// 8. ANIMACIONES DE ENTRADA
 .animate-on-load {
     opacity: 0;
     transform: translateY(30px) rotate(-1deg);
@@ -388,7 +441,6 @@ body {
         opacity: 1;
         transform: translateY(0) rotate(0deg);
         
-        // Restaurar rotaciones originales de las cards tras la animación
         &.details__card--ceo { transform: rotate(1deg); }
         &.details__card:nth-child(2), 
         &.details__card:nth-child(3),
@@ -397,22 +449,12 @@ body {
     }
 }
 
-// Delays usando un mapa de Sass para elegancia y orden
-$delays: (
-    "1": 0.1s,
-    "2": 0.3s,
-    "3": 0.5s,
-    "4": 0.7s,
-    "5": 0.9s
-);
-
+$delays: ("1": 0.1s, "2": 0.3s, "3": 0.5s, "4": 0.7s, "5": 0.9s);
 @each $key, $value in $delays {
-    .delay-#{$key} {
-        transition-delay: $value;
-    }
+    .delay-#{$key} { transition-delay: $value; }
 }
 
-// --- 9. LOADER / SPINNER ---
+// 9. LOADER / SPINNER
 #loader-wrapper {
     position: fixed;
     inset: 0;
@@ -446,19 +488,17 @@ $delays: (
     border-right: 8px solid v.$pink;
     border-bottom: 8px solid v.$yellow;
     animation: spin 1.2s linear infinite, glow 1.5s ease-in-out infinite alternate;
+
+    @include m.mobile { width: 100px; height: 100px; }
 }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
+@keyframes spin { to { transform: rotate(360deg); } }
 @keyframes glow {
     0% { box-shadow: 0 0 15px v.$purple; }
     50% { box-shadow: 0 0 15px v.$pink; }
     100% { box-shadow: 0 0 40px v.$yellow; }
 }
 
-// Keyframes adicionales de tu código (por si los usas luego)
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }

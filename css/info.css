@@ -40,6 +40,13 @@ body::-webkit-scrollbar-thumb:hover {
   margin: 0 auto;
   padding: 0 2rem;
 }
+@media (max-width: 992px) {
+  .header__nav {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 1.5rem;
+  }
+}
 .header__list {
   display: flex;
   list-style: none;
@@ -51,9 +58,26 @@ body::-webkit-scrollbar-thumb:hover {
 .header__list--right {
   justify-content: flex-end;
 }
+@media (max-width: 992px) {
+  .header__list--left, .header__list--right {
+    justify-content: center;
+  }
+}
+@media (max-width: 576px) {
+  .header__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
 .header__logo {
   position: relative;
   z-index: 10;
+}
+@media (max-width: 992px) {
+  .header__logo {
+    order: -1;
+  }
 }
 .header__logo-link {
   display: block;
@@ -67,6 +91,11 @@ body::-webkit-scrollbar-thumb:hover {
   height: 120px;
   filter: drop-shadow(0 0 1px #FF3CAC);
   margin-bottom: -40px;
+}
+@media (max-width: 576px) {
+  .header__logo-img {
+    height: 90px;
+  }
 }
 .header__link {
   text-decoration: none;
@@ -106,10 +135,20 @@ body::-webkit-scrollbar-thumb:hover {
   margin: 0 auto;
   min-height: 100vh;
 }
+@media (max-width: 576px) {
+  .info-page {
+    padding: 2rem 1rem;
+  }
+}
 
 .info-hero {
   text-align: center;
   margin-bottom: 5rem;
+}
+@media (max-width: 576px) {
+  .info-hero {
+    margin-bottom: 3rem;
+  }
 }
 .info-hero__title {
   font-family: "Gochi Hand", cursive;
@@ -117,6 +156,11 @@ body::-webkit-scrollbar-thumb:hover {
   color: #FFFFFF;
   text-transform: uppercase;
   margin-bottom: 2rem;
+}
+@media (max-width: 576px) {
+  .info-hero__title {
+    font-size: 2.5rem;
+  }
 }
 .info-hero__title span {
   color: #6C63FF;
@@ -139,6 +183,11 @@ body::-webkit-scrollbar-thumb:hover {
   transition: all 0.3s ease;
   box-shadow: 4px 4px 0px #6C63FF;
 }
+@media (max-width: 576px) {
+  .search-container .search-input {
+    padding: 1.2rem 1.5rem;
+  }
+}
 .search-container .search-input:focus {
   outline: none;
   border-color: #00E5FF;
@@ -152,12 +201,24 @@ body::-webkit-scrollbar-thumb:hover {
   transform: translateY(-50%);
   font-size: 1.5rem;
 }
+@media (max-width: 576px) {
+  .search-container .search-icon {
+    right: 1rem;
+    font-size: 1.2rem;
+  }
+}
 
 .festivals-container {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
   margin-top: 4rem;
+}
+@media (max-width: 576px) {
+  .festivals-container {
+    margin-top: 2rem;
+    gap: 1.5rem;
+  }
 }
 
 .info-card {
@@ -180,6 +241,8 @@ body::-webkit-scrollbar-thumb:hover {
   .info-card__main {
     flex-direction: column;
     text-align: center;
+    padding: 1.5rem;
+    gap: 1.5rem;
   }
 }
 .info-card__img {
@@ -192,6 +255,12 @@ body::-webkit-scrollbar-thumb:hover {
   filter: grayscale(0.5);
   transition: all 0.3s ease;
 }
+@media (max-width: 576px) {
+  .info-card__img {
+    width: 140px;
+    height: 200px;
+  }
+}
 .info-card__summary {
   flex-grow: 1;
 }
@@ -201,6 +270,11 @@ body::-webkit-scrollbar-thumb:hover {
   color: #00E5FF;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
+}
+@media (max-width: 576px) {
+  .info-card__summary h3 {
+    font-size: 1.8rem;
+  }
 }
 .info-card__summary p {
   color: #FFD600;
@@ -219,6 +293,11 @@ body::-webkit-scrollbar-thumb:hover {
   box-shadow: 4px 4px 0px #FFFFFF;
   transition: all 0.2s ease;
 }
+@media (max-width: 576px) {
+  .info-card__btn {
+    width: 100%;
+  }
+}
 .info-card__btn:hover {
   transform: translate(2px, 2px);
   box-shadow: 0 0 0 #FFFFFF;
@@ -236,6 +315,12 @@ body::-webkit-scrollbar-thumb:hover {
   border-top: 2px solid rgba(255, 255, 255, 0.1);
   line-height: 1.8;
 }
+@media (max-width: 576px) {
+  .info-card__details .details-content {
+    padding: 1.5rem;
+    font-size: 0.9rem;
+  }
+}
 .info-card__details .details-content strong {
   color: #00E5FF;
   text-transform: uppercase;
@@ -243,6 +328,11 @@ body::-webkit-scrollbar-thumb:hover {
 .info-card.is-active {
   border-color: #00E5FF;
   transform: rotate(1deg);
+}
+@media (max-width: 576px) {
+  .info-card.is-active {
+    transform: rotate(0deg);
+  }
 }
 .info-card.is-active .info-card__details {
   max-height: 2000px;
@@ -291,6 +381,11 @@ body::-webkit-scrollbar-thumb:hover {
   gap: 3rem;
   list-style: none;
 }
+@media (max-width: 576px) {
+  .footer__social {
+    gap: 1.5rem;
+  }
+}
 .footer__social-item {
   transition: all 0.3s ease;
 }
@@ -330,4 +425,9 @@ body::-webkit-scrollbar-thumb:hover {
   color: #FFD600;
   opacity: 0.3;
   transform: rotate(-5deg);
+}
+@media (max-width: 576px) {
+  .footer::after {
+    display: none;
+  }
 }/*# sourceMappingURL=info.css.map */

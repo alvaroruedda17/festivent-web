@@ -40,6 +40,13 @@ body::-webkit-scrollbar-thumb:hover {
   margin: 0 auto;
   padding: 0 2rem;
 }
+@media (max-width: 992px) {
+  .header__nav {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 1.5rem;
+  }
+}
 .header__list {
   display: flex;
   list-style: none;
@@ -51,9 +58,26 @@ body::-webkit-scrollbar-thumb:hover {
 .header__list--right {
   justify-content: flex-end;
 }
+@media (max-width: 992px) {
+  .header__list--left, .header__list--right {
+    justify-content: center;
+  }
+}
+@media (max-width: 576px) {
+  .header__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
 .header__logo {
   position: relative;
   z-index: 10;
+}
+@media (max-width: 992px) {
+  .header__logo {
+    order: -1;
+  }
 }
 .header__logo-link {
   display: block;
@@ -67,6 +91,11 @@ body::-webkit-scrollbar-thumb:hover {
   height: 120px;
   filter: drop-shadow(0 0 1px #FF3CAC);
   margin-bottom: -40px;
+}
+@media (max-width: 576px) {
+  .header__logo-img {
+    height: 90px;
+  }
 }
 .header__link {
   text-decoration: none;
@@ -106,6 +135,11 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 2rem 2rem 6rem 2rem;
   overflow: hidden;
 }
+@media (max-width: 576px) {
+  .about {
+    padding: 1rem 1rem 4rem 1rem;
+  }
+}
 .about__hero {
   max-width: 900px;
   margin: 0 auto 6rem;
@@ -119,6 +153,11 @@ body::-webkit-scrollbar-thumb:hover {
   color: #00E5FF;
   text-shadow: 5px 5px 0px #FF3CAC;
   transform: rotate(-2deg);
+}
+@media (max-width: 576px) {
+  .about__title {
+    text-shadow: 3px 3px 0px #FF3CAC;
+  }
 }
 .about__title span {
   font-family: "Inter", sans-serif;
@@ -137,6 +176,13 @@ body::-webkit-scrollbar-thumb:hover {
   padding-left: 2rem;
   margin-bottom: 3rem;
 }
+@media (max-width: 576px) {
+  .about__text {
+    font-size: 1rem;
+    padding-left: 1rem;
+    text-align: left;
+  }
+}
 .about__download-btn {
   display: inline-block;
   background: #FF3CAC;
@@ -148,6 +194,13 @@ body::-webkit-scrollbar-thumb:hover {
   border: 3px solid #FFFFFF;
   box-shadow: 8px 8px 0px #00E5FF;
   transition: all 0.3s ease;
+}
+@media (max-width: 576px) {
+  .about__download-btn {
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    width: 100%;
+  }
 }
 .about__download-btn:hover {
   transform: translate(-4px, -4px);
@@ -162,12 +215,22 @@ body::-webkit-scrollbar-thumb:hover {
   max-width: 1200px;
   margin: 0 auto;
 }
+@media (max-width: 576px) {
+  .details__grid {
+    gap: 2rem;
+  }
+}
 .details__card {
   background: #1a1a1a;
   border: 3px solid #FFFFFF;
   padding: 2.5rem;
   position: relative;
   transition: all 0.3s ease;
+}
+@media (max-width: 576px) {
+  .details__card {
+    padding: 1.5rem;
+  }
 }
 .details__card--ceo {
   background: #FFD600;
@@ -221,6 +284,11 @@ body::-webkit-scrollbar-thumb:hover {
   text-align: center;
   width: 100%;
 }
+@media (max-width: 576px) {
+  .about__social {
+    margin-top: 4rem;
+  }
+}
 
 .social__title {
   font-family: "Gochi Hand", cursive;
@@ -231,6 +299,11 @@ body::-webkit-scrollbar-thumb:hover {
   display: block;
   text-align: center;
 }
+@media (max-width: 576px) {
+  .social__title {
+    font-size: 2.5rem;
+  }
+}
 
 .about__video--container {
   max-width: 900px;
@@ -239,6 +312,12 @@ body::-webkit-scrollbar-thumb:hover {
   box-shadow: 15px 15px 0px #6C63FF;
   position: relative;
   transform: rotate(-1deg);
+}
+@media (max-width: 576px) {
+  .about__video--container {
+    border-width: 3px;
+    transform: rotate(0);
+  }
 }
 .about__video {
   width: 100%;
@@ -272,6 +351,8 @@ body::-webkit-scrollbar-thumb:hover {
 .controls__buttons {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .control-btn {
@@ -317,6 +398,11 @@ body::-webkit-scrollbar-thumb:hover {
   gap: 3rem;
   list-style: none;
 }
+@media (max-width: 576px) {
+  .footer__social {
+    gap: 1.5rem;
+  }
+}
 .footer__social-item {
   transition: all 0.3s ease;
 }
@@ -356,6 +442,11 @@ body::-webkit-scrollbar-thumb:hover {
   color: #FFD600;
   opacity: 0.3;
   transform: rotate(-5deg);
+}
+@media (max-width: 576px) {
+  .footer::after {
+    display: none;
+  }
 }
 
 .animate-on-load {
@@ -429,6 +520,12 @@ body::-webkit-scrollbar-thumb:hover {
   border-right: 8px solid #FF3CAC;
   border-bottom: 8px solid #FFD600;
   animation: spin 1.2s linear infinite, glow 1.5s ease-in-out infinite alternate;
+}
+@media (max-width: 576px) {
+  .spiner {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 @keyframes spin {

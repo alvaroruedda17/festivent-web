@@ -38,9 +38,15 @@
     transition: all $time ease;
 }
 
-// 6. Flex center simplificado para el Carousel
-@mixin flex-center-alt {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+// 6. MIXINS PARA RESPONSIVE (NUEVOS)
+@mixin tablet {
+    @media (max-width: 992px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: 576px) {
+        @content;
+    }
 }
