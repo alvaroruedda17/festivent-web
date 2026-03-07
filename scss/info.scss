@@ -1,0 +1,184 @@
+@use "sass:map";
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.info-page {
+    padding: 12rem 2rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.info-hero {
+    text-align: center;
+    margin-bottom: 5rem;
+
+    &__title {
+        @include m.hand-font(4rem);
+        color: v.$white;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        
+        span { 
+            color: v.$purple; 
+            text-shadow: 0 0 10px v.$purple; 
+        }
+    }
+}
+
+.search-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+
+    .search-input {
+        width: 100%;
+        padding: 1.5rem 2rem;
+        background: rgba(v.$white, 0.05);
+        border: 3px solid v.$pink;
+        border-radius: 0; // Estética retro cuadrada
+        color: v.$white;
+        font-family: 'Inter', sans-serif;
+        @include m.transition;
+        @include m.retro-shadow(v.$purple);
+
+        &:focus {
+            outline: none;
+            border-color: v.$cyan;
+            @include m.retro-shadow(v.$pink);
+            background: rgba(v.$white, 0.1);
+        }
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+    }
+}
+
+.festivals-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.info-card {
+    background: v.$black;
+    border: 4px solid v.$white;
+    position: relative;
+    @include m.transition;
+    @include m.retro-shadow(v.$purple, 8px, 8px);
+
+    &.is-hidden { display: none; }
+
+    &__main {
+        display: flex;
+        align-items: center;
+        padding: 2rem;
+        gap: 3rem;
+        
+        @media (max-width: 768px) { 
+            flex-direction: column; 
+            text-align: center; 
+        }
+    }
+
+    &__img {
+        width: 180px;
+        height: 120px;
+        object-fit: cover;
+        border: 2px solid v.$white;
+        filter: grayscale(0.5);
+        @include m.transition;
+    }
+
+    &__summary {
+        flex-grow: 1;
+        h3 { 
+            @include m.hand-font(2.5rem);
+            color: v.$cyan; 
+            margin-bottom: 0.5rem; 
+            text-transform: uppercase;
+        }
+        p { 
+            color: v.$yellow; 
+            font-weight: 700; 
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+    }
+
+    &__btn {
+        background: v.$pink;
+        border: 3px solid v.$black;
+        color: v.$black;
+        padding: 0.8rem 1.5rem;
+        @include m.hand-font(1.2rem);
+        cursor: pointer;
+        @include m.retro-shadow(v.$white, 4px, 4px);
+        @include m.transition(0.2s);
+
+        &:hover { 
+            transform: translate(2px, 2px);
+            box-shadow: 0 0 0 v.$white;
+            background: v.$cyan;
+        }
+    }
+
+    // Lógica de Acordeón
+    &__details {
+        max-height: 0;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.03);
+        @include m.transition(0.5s);
+
+        .details-content {
+            padding: 2rem;
+            color: v.$white;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+            line-height: 1.8;
+
+            strong { color: v.$cyan; text-transform: uppercase; }
+        }
+    }
+
+    // Estado abierto
+    &.is-active {
+        border-color: v.$cyan;
+        transform: rotate(1deg);
+        
+        .info-card__details {
+            max-height: 500px;
+        }
+
+        .info-card__img {
+            filter: grayscale(0);
+            border-color: v.$cyan;
+        }
+        
+        .info-card__btn {
+            background: v.$yellow;
+        }
+    }
+}
+
+.details-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: v.$pink;
+    text-decoration: none;
+    font-weight: 900;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+    @include m.transition;
+
+    &:hover { 
+        color: v.$cyan;
+        border-color: v.$cyan;
+        letter-spacing: 1px;
+    }
+}

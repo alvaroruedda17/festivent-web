@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FestiVent | Info Festivales</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/info.css">
+    </head>
+    <body>
+        <header class="header">
+            <nav class="header__nav">
+                <ul class="header__list header__list--left">
+                    <li class="header__item"><a href="../index.html" class="header__link">Inicio</a></li>
+                    <li class="header__item"><a href="info.html" class="header__link header__link--active">Info Festivales</a></li>
+                    <li class="header__item"><a href="registro.html" class="header__link">Registro</a></li>
+                </ul>
+                <div class="header__logo">
+                    <a href="../index.html" class="header__logo-link">
+                        <img src="../img/logo.png" alt="Logo FestiVent" class="header__logo-img">
+                    </a>
+                </div>
+                <ul class="header__list header__list--right">
+                    <li class="header__item"><a href="entradas.html" class="header__link header__link--cta">Compra Entradas</a></li>
+                    <li class="header__item"><a href="nosotros.html" class="header__link">Nosotros</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="info-page">
+            <section class="info-hero">
+                <h1 class="info-hero__title">Directorio_<span>Festivales</span></h1>
+                <div class="search-container">
+                    <input type="text" id="festival-search" class="search-input" placeholder="Escribe para filtrar (ej: 'Madrid', 'Riverland')...">
+                    <span class="search-icon">🔍</span>
+                </div>
+            </section>
+
+            <section class="festivals-container" id="festivals-list">
+                <article class="info-card" data-name="madrid salvaje">
+                    <div class="info-card__main">
+                        <img src="../img/madrid_salvaje.jpg" alt="Madrid Salvaje" class="info-card__img">
+                        <div class="info-card__summary">
+                            <h3>Madrid Salvaje</h3>
+                            <p>Género: Urbano / Rap</p>
+                            <button class="info-card__btn">Ver detalles</button>
+                        </div>
+                    </div>
+                    <div class="info-card__details">
+                        <div class="details-content">
+                            <p><strong>Ubicación:</strong> IFEMA, Madrid.</p>
+                            <p><strong>Descripción:</strong> El punto de encuentro clave para los amantes de la cultura urbana. Más de 30 artistas en 3 escenarios distintos.</p>
+                            <a href="entradas.html?genre=rap&festival=madrid_salvaje" class="details-link">Comprar ahora &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="info-card" data-name="riverland festival">
+                    <div class="info-card__main">
+                        <img src="../img/riverland.jpeg" alt="Riverland" class="info-card__img">
+                        <div class="info-card__summary">
+                            <h3>Riverland Festival</h3>
+                            <p>Género: Trap / Indie</p>
+                            <button class="info-card__btn">Ver detalles</button>
+                        </div>
+                    </div>
+                    <div class="info-card__details">
+                        <div class="details-content">
+                            <p><strong>Ubicación:</strong> Arriondas (Cangas de Onís), Asturias.</p>
+                            <p><strong>Descripción:</strong> Un festival único a orillas del río Sella. Naturaleza y música urbana en un entorno inigualable.</p>
+                            <a href="entradas.html?genre=trap&festival=riverland_festival" class="details-link">Comprar ahora &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="info-card" data-name="awakenings madrid">
+                    <div class="info-card__main">
+                        <img src="../img/awakenings.jpg" alt="Awakenings" class="info-card__img">
+                        <div class="info-card__summary">
+                            <h3>Awakenings Madrid</h3>
+                            <p>Género: Techno</p>
+                            <button class="info-card__btn">Ver detalles</button>
+                        </div>
+                    </div>
+                    <div class="info-card__details">
+                        <div class="details-content">
+                            <p><strong>Ubicación:</strong> Recinto Principal, Madrid.</p>
+                            <p><strong>Descripción:</strong> El gigante del techno llega a la capital con una producción audiovisual de otro planeta.</p>
+                            <a href="entradas.html?genre=techno&festival=awakenings_madrid" class="details-link">Comprar ahora &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="footer__text">&copy; 2026 FestiVent Inc. Estética Cyberpunk asegurada.</p>
+        </footer>
+
+        <script src="../js/info.js"></script>
+    </body>
+</html>

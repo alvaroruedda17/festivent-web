@@ -1,0 +1,169 @@
+.info-page {
+  padding: 12rem 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.info-hero {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.info-hero__title {
+  font-family: "Gochi Hand", cursive;
+  font-size: 4rem;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.info-hero__title span {
+  color: #6C63FF;
+  text-shadow: 0 0 10px #6C63FF;
+}
+
+.search-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.search-container .search-input {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 3px solid #FF3CAC;
+  border-radius: 0;
+  color: #FFFFFF;
+  font-family: "Inter", sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 0px #6C63FF;
+}
+.search-container .search-input:focus {
+  outline: none;
+  border-color: #00E5FF;
+  box-shadow: 4px 4px 0px #FF3CAC;
+  background: rgba(255, 255, 255, 0.1);
+}
+.search-container .search-icon {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+}
+
+.festivals-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.info-card {
+  background: #0F0E17;
+  border: 4px solid #FFFFFF;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 8px 8px 0px #6C63FF;
+}
+.info-card.is-hidden {
+  display: none;
+}
+.info-card__main {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  gap: 3rem;
+}
+@media (max-width: 768px) {
+  .info-card__main {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.info-card__img {
+  width: 180px;
+  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 2px solid #FFFFFF;
+  filter: grayscale(0.5);
+  transition: all 0.3s ease;
+}
+.info-card__summary {
+  flex-grow: 1;
+}
+.info-card__summary h3 {
+  font-family: "Gochi Hand", cursive;
+  font-size: 2.5rem;
+  color: #00E5FF;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.info-card__summary p {
+  color: #FFD600;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+.info-card__btn {
+  background: #FF3CAC;
+  border: 3px solid #0F0E17;
+  color: #0F0E17;
+  padding: 0.8rem 1.5rem;
+  font-family: "Gochi Hand", cursive;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px #FFFFFF;
+  transition: all 0.2s ease;
+}
+.info-card__btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 #FFFFFF;
+  background: #00E5FF;
+}
+.info-card__details {
+  max-height: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.5s ease;
+}
+.info-card__details .details-content {
+  padding: 2rem;
+  color: #FFFFFF;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  line-height: 1.8;
+}
+.info-card__details .details-content strong {
+  color: #00E5FF;
+  text-transform: uppercase;
+}
+.info-card.is-active {
+  border-color: #00E5FF;
+  transform: rotate(1deg);
+}
+.info-card.is-active .info-card__details {
+  max-height: 500px;
+}
+.info-card.is-active .info-card__img {
+  filter: grayscale(0);
+  border-color: #00E5FF;
+}
+.info-card.is-active .info-card__btn {
+  background: #FFD600;
+}
+
+.details-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: #FF3CAC;
+  text-decoration: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.details-link:hover {
+  color: #00E5FF;
+  border-color: #00E5FF;
+  letter-spacing: 1px;
+}/*# sourceMappingURL=info.css.map */
