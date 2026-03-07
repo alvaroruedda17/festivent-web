@@ -101,7 +101,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .info-page {
-  padding: 12rem 2rem 4rem;
+  padding: 4rem 2rem 4rem;
   max-width: 1200px;
   margin: 0 auto;
   min-height: 100vh;
@@ -184,9 +184,10 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .info-card__img {
   width: 180px;
-  height: 120px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  height: 250px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background: rgba(255, 255, 255, 0.05);
   border: 2px solid #FFFFFF;
   filter: grayscale(0.5);
   transition: all 0.3s ease;
@@ -244,7 +245,7 @@ body::-webkit-scrollbar-thumb:hover {
   transform: rotate(1deg);
 }
 .info-card.is-active .info-card__details {
-  max-height: 500px;
+  max-height: 2000px;
 }
 .info-card.is-active .info-card__img {
   filter: grayscale(0);

@@ -101,9 +101,9 @@ body {
     }
 }
 
-// 4. BLOQUE ESPECÍFICO DE INFO (Tu código original sin cambios)
+// 4. BLOQUE ESPECÍFICO DE INFO
 .info-page {
-    padding: 12rem 2rem 4rem;
+    padding: 4rem 2rem 4rem; // RETOQUE 1: Reducido de 12rem a 4rem
     max-width: 1200px;
     margin: 0 auto;
     min-height: 100vh;
@@ -188,9 +188,10 @@ body {
     }
 
     &__img {
-        width: 180px;
-        height: 120px;
-        object-fit: cover;
+        width: 180px;      // RETOQUE 3: Tamaño uniforme vertical
+        height: 250px;     // RETOQUE 3: Tamaño uniforme vertical
+        object-fit: contain; // RETOQUE 3: Imagen completa sin recortes
+        background: rgba(255,255,255,0.05); // Fondo sutil para el hueco
         border: 2px solid v.$white;
         filter: grayscale(0.5);
         @include m.transition;
@@ -250,7 +251,7 @@ body {
         transform: rotate(1deg);
         
         .info-card__details {
-            max-height: 500px;
+            max-height: 2000px; // RETOQUE 2: Aumentado para albergar mucha info
         }
 
         .info-card__img {
